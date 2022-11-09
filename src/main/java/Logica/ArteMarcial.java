@@ -4,14 +4,14 @@
  */
 package Logica;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import ArtesMarciales.ArtesMarcialesMixtas;
+import ArtesMarciales.IPrototype;
 
 /**
  *
  * @author Usuario
  */
-public abstract class ArteMarcial implements Strategy{
+public abstract class ArteMarcial implements Strategy, IPrototype{
     private String imagen;
     private String nombre;
     private HashMap<String,Ataque> ataques;
@@ -54,4 +54,16 @@ public abstract class ArteMarcial implements Strategy{
     public void setAtaques(HashMap<String, Ataque> ataques){
         this.ataques = ataques;
     }
+
+    @Override
+    public iPrototype clone() {
+        ArteMarcial arteMarcial = new ArteMarcial(String imagen, String nombre);
+        return arteMarcial;
+    }
+
+    @Override
+    public iPrototype deepClone() {
+        return clone();
+    }
+      
 }
