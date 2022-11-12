@@ -4,8 +4,9 @@
  */
 package Logica;
 
-import ArtesMarciales.ArtesMarcialesMixtas;
 import ArtesMarciales.IPrototype;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -54,15 +55,21 @@ public abstract class ArteMarcial implements Strategy, IPrototype{
     public void setAtaques(HashMap<String, Ataque> ataques){
         this.ataques = ataques;
     }
-
+    
     @Override
-    public iPrototype clone() {
-        ArteMarcial arteMarcial = new ArteMarcial(String imagen, String nombre);
+    public void attack(Jugador jugador, String tipoAtaque) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     }
+    
+    @Override
+    public IPrototype clone() {
+        ArteMarcial arteMarcial = new ArteMarcial(imagen, nombre) {};
+            
         return arteMarcial;
     }
 
     @Override
-    public iPrototype deepClone() {
+    public IPrototype deepClone() {
         return clone();
     }
       

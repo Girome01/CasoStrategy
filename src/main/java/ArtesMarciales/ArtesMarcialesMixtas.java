@@ -23,11 +23,13 @@ public class ArtesMarcialesMixtas extends ArteMarcial{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-
     @Override
-    public void attack(Jugador jugador, String tipoAtaque) {
-        // TODO Auto-generated method stub
-        
+    public IPrototype clone() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public IPrototype deepClone() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
