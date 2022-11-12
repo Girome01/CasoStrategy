@@ -26,17 +26,20 @@ public class Ataque {
         switch (actualizacion) {
             case 1:
                 //Se cura el jugadorJ
-                jugador.setVida(ran.nextInt(10)+5);
+                jugador.setVida(jugador.getVida()+ran.nextInt(10)+5);
                 break; 
             case 2:
-                //Aumenta el dañoe
-                enemigo.setVida(damage+(ran.nextInt(10)+5));
+                //Aumenta el daño
+                enemigo.setVida(enemigo.getVida()-damage+(ran.nextInt(10)+5));
                 break;
             case 3:
                 //Ambas
-                jugador.setVida(ran.nextInt(10)+5);
-                enemigo.setVida(damage+(ran.nextInt(10)+5));
-                
+                jugador.setVida(jugador.getVida()+ran.nextInt(10)+5);
+                enemigo.setVida(enemigo.getVida()-damage+(ran.nextInt(10)+5));
+                break;
+            case 4: 
+                //Danno
+                enemigo.setVida(enemigo.getVida()-damage);
                 break;
              
             default:

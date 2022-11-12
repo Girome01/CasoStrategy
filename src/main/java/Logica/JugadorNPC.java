@@ -39,7 +39,7 @@ public class JugadorNPC extends Jugador{
 
             String ataque = ataquesArte.get(ran.nextInt(ataquesArte.size())); //nombre del ataque a realizar
             
-            arteMarcial.attack(jugador, jugador, ataque); //ataca al jugador -- Cambiar la referencia del jugador enemigo
+            arteMarcial.attack(jugador, enemigo, ataque); //ataca al jugador -- Cambiar la referencia del jugador enemigo
             
             
             combo.add(ataque); //agrega el ataque al combo
