@@ -17,10 +17,5 @@ public class Sumo extends ArteMarcial{
         super(imagen, nombre);
     }
 
-    
-    @Override
-    public void attack(Jugador jugador, String tipoAtaque) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
+ 
 }

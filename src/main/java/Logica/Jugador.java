@@ -11,18 +11,18 @@ import java.util.ArrayList;
  * @author Usuario
  */
 public abstract class Jugador {
-    private String nombre;
-    private int vida;
-    private int arteMarcialSelec;
-    private ArrayList<Strategy> artesMarciales;
-    private ArrayList<String> combo;
+    protected String nombre;
+    protected int vida;
+    protected int arteMarcialSelec;
+    protected ArrayList<Strategy> artesMarciales;
+    protected ArrayList<String> combo;
 
     public Jugador(String nombre, int vida) {
         this.nombre = nombre;
         this.vida = vida;
     }
     
-    public abstract void attack(Jugador jugador, ArrayList<String> combo);
+    public abstract void attack(Jugador jugador,Jugador enemigo, ArrayList<String> combo);
     //Jugador se refiere al enemigo que recibe daño, combo se refiere al combo de ataques que se van a hacer
     
     public abstract void generarCombo();

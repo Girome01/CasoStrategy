@@ -15,7 +15,7 @@ import java.util.HashMap;
 public abstract class ArteMarcial implements Strategy, IPrototype{
     private String imagen;
     private String nombre;
-    private HashMap<String,Ataque> ataques;
+    private HashMap<String,Ataque> ataques = new HashMap<>();
     private Jugador refJugador;
 
     public ArteMarcial(String imagen, String nombre) {
@@ -24,8 +24,8 @@ public abstract class ArteMarcial implements Strategy, IPrototype{
     }
     
     public ArrayList<String> getAtaques(){
-        //Devolver en string las keys del hasmap para saber todos los ataques
-        return null;
+        
+        return (ArrayList<String>)ataques.keySet();
     }
 
     public String getImagen() {
@@ -52,13 +52,15 @@ public abstract class ArteMarcial implements Strategy, IPrototype{
         this.refJugador = refJugador;
     }
     
+    
     public void setAtaques(HashMap<String, Ataque> ataques){
         this.ataques = ataques;
     }
     
     @Override
-    public void attack(Jugador jugador, String tipoAtaque) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void attack(Jugador jugador,Jugador enemigo, String tipoAtaque) {
+        Ataque ataque  = ataques.get(tipoAtaque);
+        ataque.actualizar(jugador,enemigo);
      }
     
     @Override
@@ -72,5 +74,6 @@ public abstract class ArteMarcial implements Strategy, IPrototype{
     public IPrototype deepClone() {
         return clone();
     }
-      
+     
+    
 }

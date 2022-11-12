@@ -9,5 +9,5 @@ package Logica;
  * @author Usuario
  */
 public interface Strategy {
-    public void attack(Jugador jugador, String tipoAtaque);
+    public void attack(Jugador jugador,Jugador enemigo, String tipoAtaque);
 }

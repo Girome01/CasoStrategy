@@ -4,6 +4,8 @@
  */
 package Logica;
 
+import java.util.Random;
+
 /**
  *
  * @author Usuario
@@ -18,8 +20,28 @@ public class Ataque {
         this.damage = damage;
     }
     
-    public String actualizar(Jugador jugador){
-        //la idea es poner un switch donde en la opcion 1 se actualice la vida, 2 se aumente danno, 3 ambas cosas
+    public String actualizar(Jugador jugador,Jugador enemigo){
+        //la idea es pon;er un switch donde en la opcion 1 se actualice la vida, 2 se aumente danno, 3 ambas cosas
+        Random ran = new Random();
+        switch (actualizacion) {
+            case 1:
+                //Se cura el jugadorJ
+                jugador.setVida(ran.nextInt(10)+5);
+                break; 
+            case 2:
+                //Aumenta el dañoe
+                enemigo.setVida(damage+(ran.nextInt(10)+5));
+                break;
+            case 3:
+                //Ambas
+                jugador.setVida(ran.nextInt(10)+5);
+                enemigo.setVida(damage+(ran.nextInt(10)+5));
+                
+                break;
+             
+            default:
+                System.out.println("Error, elija una opcion valida");;
+        }
         return null;
     }
 
