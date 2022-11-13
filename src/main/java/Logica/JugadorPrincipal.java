@@ -18,30 +18,38 @@ public class JugadorPrincipal extends Jugador{
     }
 
     @Override
-    public void attack(Jugador jugador,Jugador enemigo, ArrayList<String> combo) {
+    public void attack(Jugador jugador,Jugador enemigo, ArrayList<Ataque> combo) {
+       
+        for (Ataque ataque : combo) {
+            
+            arteMarcialSelec.attack(jugador, enemigo, ataque.getNombre());
+            
+        }
+       
+    }
+
+    @Override
+    public void generarCombo() {    
         
-          Random ran = new Random();
-        int numGolpes = ran.nextInt(6)+3;
+         Random ran = new Random();
+        int numGolpes = ran.nextInt(3)+3;
         int seleccionArteMarcial = ran.nextInt(3); //selecciona un arte marcial de los 3 
         
         ArteMarcial arteMarcial = (ArteMarcial)artesMarciales.get(seleccionArteMarcial);
         
         ArrayList<String> ataquesArte  = arteMarcial.getAtaques(); //ataques del arte marcial seleccionado
         
+        this.arteMarcialSelec = arteMarcial;
+        
         
         for (int i = 0; i < numGolpes; i++) {
             
-            String ataque = ataquesArte.get(ran.nextInt(ataquesArte.size())); //nombre del ataque a realizar
+            String ataqueNombre = ataquesArte.get(ran.nextInt(ataquesArte.size())); //nombre del ataque a realizar
             
-            arteMarcial.attack(jugador, jugador, ataque); //ataca al jugador -- Cambiar la referencia del jugador enemigo
+            Ataque ataque = arteMarcial.getHash().get(ataqueNombre);
             
             combo.add(ataque); //ingresa el ataque a combo
         }
-        
-    }
-
-    @Override
-    public void generarCombo() {    
         
     }
     
