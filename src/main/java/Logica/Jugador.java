@@ -14,8 +14,8 @@ public abstract class Jugador {
     protected String nombre;
     protected int vida;
     protected int arteMarcialSelec;
-    protected ArrayList<Strategy> artesMarciales;
-    protected ArrayList<String> combo;
+    protected ArrayList<Strategy> artesMarciales = new ArrayList<Strategy>();
+    protected ArrayList<String> combo = new ArrayList<String>();
 
     public Jugador(String nombre, int vida) {
         this.nombre = nombre;
