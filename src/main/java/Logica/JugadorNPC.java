@@ -18,10 +18,24 @@ public class JugadorNPC extends Jugador{
     }
 
     @Override
-    public void attack(Jugador jugador,Jugador enemigo, ArrayList<String> combo) {
+    public void attack(Jugador jugador,Jugador enemigo, ArrayList<Ataque> combo) {
+        
+      
+        for (Ataque ataque : combo) {
+            
+            ArteMarcial arteMarcial = encontrarArte(ataque.getNombre());
+            arteMarcial.attack(jugador, enemigo, ataque.getNombre());
+            
+        }
+            
+        
+    }
+
+    @Override
+    public void generarCombo() {
         
         Random ran = new Random();
-        int numGolpes = ran.nextInt(6)+3;
+        int numGolpes = ran.nextInt(3)+3;
         int seleccionArteMarcial; //selecciona un arte marcial de los 3 
         
         ArteMarcial arteMarcial;
@@ -37,19 +51,31 @@ public class JugadorNPC extends Jugador{
         
             ataquesArte  = arteMarcial.getAtaques(); //ataques del arte marcial seleccionado
 
-            String ataque = ataquesArte.get(ran.nextInt(ataquesArte.size())); //nombre del ataque a realizar
+            String ataqueNombre = ataquesArte.get(ran.nextInt(ataquesArte.size())); //nombre del ataque a realizar
             
-            arteMarcial.attack(jugador, enemigo, ataque); //ataca al jugador -- Cambiar la referencia del jugador enemigo
-            
+            Ataque ataque = arteMarcial.getHash().get(ataqueNombre);
             
             combo.add(ataque); //agrega el ataque al combo
             
         }
-    }
-
-    @Override
-    public void generarCombo() {
         
+    }
+    
+    public ArteMarcial encontrarArte(String nombre){
+        
+        
+        for (Strategy arte : artesMarciales) {
+            
+              ArteMarcial arteSeleccionado = (ArteMarcial)arte;
+              ArrayList<String> ataquesArte  = arteSeleccionado.getAtaques(); //ataques del arte marcial seleccionado
+              
+              if(ataquesArte.get(0).equals(nombre) || ataquesArte.get(1).equals(nombre) || ataquesArte.get(2).equals(nombre)){
+              
+                  return arteSeleccionado;
+              }  
+        }
+        return null;
+    
     }
     
 }

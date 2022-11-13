@@ -13,16 +13,16 @@ import java.util.ArrayList;
 public abstract class Jugador {
     protected String nombre;
     protected int vida;
-    protected int arteMarcialSelec;
+    protected ArteMarcial arteMarcialSelec;
     protected ArrayList<Strategy> artesMarciales;
-    protected ArrayList<String> combo;
+    protected ArrayList<Ataque> combo;
 
     public Jugador(String nombre, int vida) {
         this.nombre = nombre;
         this.vida = vida;
     }
     
-    public abstract void attack(Jugador jugador,Jugador enemigo, ArrayList<String> combo);
+    public abstract void attack(Jugador jugador,Jugador enemigo, ArrayList<Ataque> combo);
     //Jugador se refiere al enemigo que recibe daño, combo se refiere al combo de ataques que se van a hacer
     
     public abstract void generarCombo();
@@ -44,11 +44,11 @@ public abstract class Jugador {
         this.vida = vida;
     }
 
-    public int getArteMarcialSelec() {
+    public ArteMarcial getArteMarcialSelec() {
         return arteMarcialSelec;
     }
 
-    public void setArteMarcialSelec(int arteMarcialSelec) {
+    public void setArteMarcialSelec(ArteMarcial arteMarcialSelec) {
         this.arteMarcialSelec = arteMarcialSelec;
     }
 
@@ -60,11 +60,11 @@ public abstract class Jugador {
         this.artesMarciales = artesMarciales;
     }
 
-    public ArrayList<String> getCombo() {
+    public ArrayList<Ataque> getCombo() {
         return combo;
     }
 
-    public void setCombo(ArrayList<String> combo) {
+    public void setCombo(ArrayList<Ataque> combo) {
         this.combo = combo;
     }
     

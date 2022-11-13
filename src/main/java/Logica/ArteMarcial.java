@@ -23,6 +23,10 @@ public abstract class ArteMarcial implements Strategy, IPrototype{
         this.nombre = nombre;
     }
     
+    public HashMap<String,Ataque> getHash(){
+        return ataques;
+    }
+    
     public ArrayList<String> getAtaques(){
         
         return (ArrayList<String>)ataques.keySet();
