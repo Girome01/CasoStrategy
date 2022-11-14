@@ -68,24 +68,36 @@ public class Juego {
    
    public void cambiarArtesJugador(Jugador jugadorSelec ){
        
-       jugadorSelec.artesMarciales.clear();
+       jugadorSelec.artesMarciales.clear(); // limpia las que tiene
        
-       Set<String> nombreArtes1 = artesMarciales.keySet();
-       ArrayList<String> nombreArtes = new ArrayList<>(nombreArtes1);
+       Set<String> nombreArtes1 = artesMarciales.keySet();  //arte existentes
+       ArrayList<String> nombreArtes = new ArrayList<>(nombreArtes1); //lo convierte en un array
        
        
        for (int i = 0; i < 3; i++) {
            
             Random ran = new Random();
-            int arteRandom = ran.nextInt(this.artesMarciales.size());
+            int arteRandom = ran.nextInt(this.artesMarciales.size());  //random del largo de las artes
             
             String nombre = nombreArtes.get(arteRandom);
-            jugadorSelec.getArtesMarciales().add(artesMarciales.get(nombre));
-           
+            if(!esRepetido(jugadorSelec,nombre)){
+                jugadorSelec.getArtesMarciales().add(artesMarciales.get(nombre));
+            }
+            else
+                i--;
        }
        
+       System.out.println(jugadorSelec.getArtesMarciales());
    }
    
+   public boolean esRepetido(Jugador jugadorSelec, String nombre){
+        for (ArteMarcial arte: jugadorSelec.getArtesMarciales()) {
+           if(arte.getNombre().equals(nombre))
+               return true;
+        }
+       return false;
+   
+   }
    
    public void crearArtes(){
        
