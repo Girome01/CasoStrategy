@@ -20,8 +20,14 @@ public class Juego {
     JugadorPrincipal jugador;
     JugadorNPC jugadorNPC;
     HashMap<String, ArteMarcial> artesMarciales = new HashMap<>();
-    
 
+    public Juego(JugadorPrincipal jugador, JugadorNPC jugadorNPC) {
+        this.jugador = jugador;
+        this.jugadorNPC = jugadorNPC;
+    }
+    
+    
+   
     public JugadorPrincipal getJugador() {
         return jugador;
     }
@@ -50,16 +56,16 @@ public class Juego {
        jugadorSelec.generarCombo(); //crea el combo de ataque
    }
     
-   public void attackNPC(){ //ataca el NPC
-       jugadorNPC.attack(jugadorNPC,jugador,jugadorNPC.combo);
+   public String attackNPC(){ //ataca el NPC
+       String combo = jugadorNPC.attack(jugadorNPC,jugador,jugadorNPC.combo);
        jugadorNPC.getCombo().clear();
-        
+       return combo;
    }
    
-    public void attackJugador(){  //ataca el jugador
-       jugador.attack(jugador,jugadorNPC,jugador.combo);
+    public String attackJugador(){  //ataca el jugador
+       String combo = jugador.attack(jugador,jugadorNPC,jugador.combo);
        jugador.getCombo().clear();
-     
+       return combo;
    }
    
    public int actualizarVida(Jugador jugadorSelec){

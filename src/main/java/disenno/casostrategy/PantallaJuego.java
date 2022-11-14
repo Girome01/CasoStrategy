@@ -15,9 +15,10 @@ import javax.swing.ImageIcon;
  * @author monic
  */
 public class PantallaJuego extends javax.swing.JFrame {
-    Juego juego = new Juego();
+    
     JugadorPrincipal jugador1 = new JugadorPrincipal("Jugador 1", 200);
     JugadorNPC jugador2 = new JugadorNPC("Jugador 2", 200);
+    Juego juego = new Juego(jugador1,jugador2);
     String arteMarcialElegido;
     String comboGeneradoJ1;
     String comboGeneradoJ2;
@@ -495,6 +496,8 @@ public class PantallaJuego extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtA_BitacoraJ2.append(comboGeneradoJ2 + "\n");
         lbl_VIdaJ2.setText("200/"+jugador2.getVida());
+        comboGeneradoJ2 = "";
+        
     }//GEN-LAST:event_btn_ActualizarJ2ActionPerformed
 
     private void btn_SeleccionarAMJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SeleccionarAMJ1ActionPerformed
@@ -514,7 +517,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void btn_GenerarGolpesJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GenerarGolpesJ2ActionPerformed
         // TODO add your handling code here:
-        jugador2.generarCombo();
+        juego.generarCombo(jugador2);
                 
         //Display image on jlable
         ImageIcon ii = new ImageIcon(jugador2.encontrarArte(jugador2.getCombo().get(0).getNombre()).getImagen()); //Imagen del ARTE MARCIAL
@@ -540,17 +543,18 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void btn_AtacarJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AtacarJ2ActionPerformed
         // TODO add your handling code here:
-        comboGeneradoJ2 = jugador2.attack(jugador2, jugador1, jugador2.getCombo());
+        comboGeneradoJ2 = juego.attackNPC();
+        
     }//GEN-LAST:event_btn_AtacarJ2ActionPerformed
 
     private void btn_GenerarComboJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GenerarComboJ1ActionPerformed
         // TODO add your handling code here:
-        jugador1.generarCombo();
+        juego.generarCombo(jugador1);
     }//GEN-LAST:event_btn_GenerarComboJ1ActionPerformed
 
     private void btn_AtacarJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AtacarJ1ActionPerformed
         // TODO add your handling code here:
-        comboGeneradoJ1 = jugador1.attack(jugador1, jugador2, jugador1.getCombo());
+        comboGeneradoJ1 = juego.attackJugador();
         
     }//GEN-LAST:event_btn_AtacarJ1ActionPerformed
 
@@ -558,6 +562,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtA_BitacoraJ1.append(comboGeneradoJ1 + "\n");
         lbl_VidaJ1.setText("200/"+jugador1.getVida());
+        comboGeneradoJ1 = "";
     }//GEN-LAST:event_btn_ActualizarJ1ActionPerformed
 
     private void btn_Jugador2AM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Jugador2AM1ActionPerformed
@@ -572,8 +577,8 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void btn_Atacarse2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Atacarse2ActionPerformed
         // TODO add your handling code here:
-        jugador1.attack(jugador1, jugador2, jugador1.getCombo());
-        jugador2.attack(jugador2, jugador1, jugador2.getCombo());
+        juego.attackJugador();
+        juego.attackNPC();
         
         
     }//GEN-LAST:event_btn_Atacarse2ActionPerformed

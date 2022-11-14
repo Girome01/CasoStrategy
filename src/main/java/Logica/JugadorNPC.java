@@ -25,7 +25,7 @@ public class JugadorNPC extends Jugador{
             
             ArteMarcial arteMarcial = encontrarArte(ataque.getNombre());
             arteMarcial.attack(jugador, enemigo, ataque.getNombre());
-            comboGenerado.concat(ataque.getNombre()+" ");
+            comboGenerado += ataque.getNombre()+" ";
             
         }
            

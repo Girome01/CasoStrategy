@@ -24,7 +24,7 @@ public class JugadorPrincipal extends Jugador{
         for (Ataque ataque : combo) {
             
             arteMarcialSelec.attack(jugador, enemigo, ataque.getNombre());
-            comboGenerado.concat(ataque.getNombre()+" ");
+            comboGenerado +=  ataque.getNombre()+" ";
             
         }
         return comboGenerado;
