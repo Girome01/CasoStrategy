@@ -104,7 +104,7 @@ public class Juego {
        //KARATE
         Ataque maeGeri = new Ataque("Mae Geri",10,4);
         Ataque yokoGeri = new Ataque("Yoko Geri",5,3);
-        Ataque MawashiGeri = new Ataque("Mae Geri",30,4);
+        Ataque MawashiGeri = new Ataque("Mawashi Geri",30,4);
         
         Karate karate = new Karate("", "Karate");
         karate.addArte(maeGeri);
@@ -167,6 +167,13 @@ public class Juego {
         sumo.addArte(ashitori);
         sumo.addArte(abisetaoshi);
         sumo.addArte(amiuchi);
+        
+        System.out.println(karate.getAtaques());
+        System.out.println(box.getAtaques());
+        System.out.println(capoeira.getAtaques());
+        System.out.println(wushu.getAtaques());
+        System.out.println(judo.getAtaques());
+        System.out.println(sumo.getAtaques());
         
         artesMarciales.put(karate.getNombre(), karate);
         artesMarciales.put(box.getNombre(), box);

@@ -32,8 +32,8 @@ public abstract class ArteMarcial implements Strategy, IPrototype{
     }
     
     public ArrayList<String> getAtaques(){
-        
-        return (ArrayList<String>)ataques.keySet();
+         ArrayList<String> nombreArtes = new ArrayList<>(ataques.keySet()); //lo convierte en un array
+        return nombreArtes;
     }
     
     public ArrayList<Ataque> getAtaques2(){
