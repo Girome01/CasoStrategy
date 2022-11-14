@@ -5,17 +5,27 @@
  */
 package disenno.casostrategy;
 
+import Logica.*;
+import java.util.ArrayList;
+
 /**
  *
  * @author monic
  */
 public class PantallaJuego extends javax.swing.JFrame {
+    Juego juego = new Juego();
+    JugadorPrincipal jugador1 = new JugadorPrincipal("Jugador 1", 200);
+    JugadorNPC jugador2 = new JugadorNPC("Jugador 2", 200);
 
     /**
      * Creates new form PantallaJuego
      */
     public PantallaJuego() {
         initComponents();
+        juego.setJugador(jugador1);
+        juego.setJugadorNPC(jugador2);
+        juego.cambiarArtesJugador(jugador1);
+        juego.cambiarArtesJugador(jugador2);
     }
 
     /**
@@ -32,9 +42,9 @@ public class PantallaJuego extends javax.swing.JFrame {
         btn_Jugador1AM1 = new javax.swing.JButton();
         btn_Jugador1AM2 = new javax.swing.JButton();
         btn_Jugador1AM3 = new javax.swing.JButton();
+        lbl_Jugador1AM1 = new javax.swing.JLabel();
         lbl_Jugador1AM2 = new javax.swing.JLabel();
         lbl_Jugador1AM3 = new javax.swing.JLabel();
-        lbl_Jugador1AM4 = new javax.swing.JLabel();
         btn_SeleccionarAMJ1 = new javax.swing.JButton();
         lbl_Jugador3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -95,20 +105,20 @@ public class PantallaJuego extends javax.swing.JFrame {
         panel_Jugador1.add(btn_Jugador1AM3);
         btn_Jugador1AM3.setBounds(260, 43, 100, 26);
 
+        lbl_Jugador1AM1.setForeground(new java.awt.Color(0, 0, 0));
+        lbl_Jugador1AM1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel_Jugador1.add(lbl_Jugador1AM1);
+        lbl_Jugador1AM1.setBounds(20, 80, 100, 112);
+
         lbl_Jugador1AM2.setForeground(new java.awt.Color(0, 0, 0));
         lbl_Jugador1AM2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel_Jugador1.add(lbl_Jugador1AM2);
-        lbl_Jugador1AM2.setBounds(20, 80, 100, 112);
+        lbl_Jugador1AM2.setBounds(140, 80, 100, 112);
 
         lbl_Jugador1AM3.setForeground(new java.awt.Color(0, 0, 0));
         lbl_Jugador1AM3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panel_Jugador1.add(lbl_Jugador1AM3);
-        lbl_Jugador1AM3.setBounds(140, 80, 100, 112);
-
-        lbl_Jugador1AM4.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_Jugador1AM4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_Jugador1.add(lbl_Jugador1AM4);
-        lbl_Jugador1AM4.setBounds(260, 80, 100, 112);
+        lbl_Jugador1AM3.setBounds(260, 80, 100, 112);
 
         btn_SeleccionarAMJ1.setBackground(new java.awt.Color(255, 153, 0));
         btn_SeleccionarAMJ1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -370,6 +380,22 @@ public class PantallaJuego extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void actualizarEtiquetas(){ //Esta función se encarga de actualizar los nombres de las AM de los botones y dado del label
+        ArrayList<ArteMarcial> jugador1AM = jugador1.getArtesMarciales();
+        btn_Jugador1AM1.setText(jugador1AM.get(0).getNombre());
+        btn_Jugador1AM2.setText(jugador1AM.get(1).getNombre());
+        btn_Jugador1AM3.setText(jugador1AM.get(2).getNombre());
+        ArrayList<Ataque> jugador1Ataques = jugador1AM.get(0).getAtaques2(jugador1AM.get(0).getNombre(),jugador1AM.get(1).getNombre(),jugador1AM.get(2).getNombre());
+        lbl_Jugador1AM1.setText(jugador1Ataques.get(0).getNombre()+" |> "+ jugador1Ataques.get(0).getDamage()+ 
+                "\n"+jugador1Ataques.get(1).getNombre()+" |> "+ jugador1Ataques.get(1).getDamage()+
+                "\n"+jugador1Ataques.get(2).getNombre()+" |> "+ jugador1Ataques.get(2).getDamage());
+        
+        ArrayList<ArteMarcial> jugador2AM = jugador1.getArtesMarciales();
+        btn_Jugador2AM1.setText(jugador2AM.get(0).getNombre());
+        btn_Jugador2AM2.setText(jugador2AM.get(1).getNombre());
+        btn_Jugador2AM3.setText(jugador2AM.get(2).getNombre());
+        
+    }
     private void btn_ActualizarJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ActualizarJ2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_ActualizarJ2ActionPerformed
@@ -472,9 +498,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Imagen2J2;
     private javax.swing.JLabel lbl_Imagen3J2;
     private javax.swing.JLabel lbl_ImagenJ2;
+    private javax.swing.JLabel lbl_Jugador1AM1;
     private javax.swing.JLabel lbl_Jugador1AM2;
     private javax.swing.JLabel lbl_Jugador1AM3;
-    private javax.swing.JLabel lbl_Jugador1AM4;
     private javax.swing.JLabel lbl_Jugador2;
     private javax.swing.JLabel lbl_Jugador2AM1;
     private javax.swing.JLabel lbl_Jugador2AM2;

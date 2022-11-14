@@ -6,7 +6,9 @@ package Logica;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 /**
  *
@@ -18,8 +20,31 @@ public class Juego {
     JugadorNPC jugadorNPC;
     HashMap<String, ArteMarcial> artesMarciales = new HashMap<>();
     
-    
-    
+
+    public JugadorPrincipal getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(JugadorPrincipal jugador) {
+        this.jugador = jugador;
+    }
+
+    public JugadorNPC getJugadorNPC() {
+        return jugadorNPC;
+    }
+
+    public void setJugadorNPC(JugadorNPC jugadorNPC) {
+        this.jugadorNPC = jugadorNPC;
+    }
+
+    public HashMap<String, ArteMarcial> getArtesMarciales() {
+        return artesMarciales;
+    }
+
+    public void setArtesMarciales(HashMap<String, ArteMarcial> artesMarciales) {
+        this.artesMarciales = artesMarciales;
+    }
+       
     public void generarCombo(Jugador jugadorSelec){
        jugadorSelec.generarCombo(); //crea el combo de ataque
    }
@@ -44,7 +69,9 @@ public class Juego {
        
        jugadorSelec.artesMarciales.clear();
        
-       ArrayList<String> nombreArtes = (ArrayList<String>) artesMarciales.keySet();
+       Set<String> nombreArtes1 = artesMarciales.keySet();
+       ArrayList<String> nombreArtes = new ArrayList<>(nombreArtes1);
+       
        
        for (int i = 0; i < 3; i++) {
            

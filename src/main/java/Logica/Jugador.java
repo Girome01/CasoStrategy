@@ -13,9 +13,9 @@ import java.util.ArrayList;
 public abstract class Jugador {
     protected String nombre;
     protected int vida;
-    protected int arteMarcialSelec;
-    protected ArrayList<Strategy> artesMarciales = new ArrayList<Strategy>();
-    protected ArrayList<String> combo = new ArrayList<String>();
+    protected ArteMarcial arteMarcialSelec;
+    protected ArrayList<ArteMarcial> artesMarciales = new ArrayList<ArteMarcial>();
+    protected ArrayList<Ataque> combo = new ArrayList<Ataque>();
 
     public Jugador(String nombre, int vida) {
         this.nombre = nombre;
@@ -52,11 +52,11 @@ public abstract class Jugador {
         this.arteMarcialSelec = arteMarcialSelec;
     }
 
-    public ArrayList<Strategy> getArtesMarciales() {
+    public ArrayList<ArteMarcial> getArtesMarciales() {
         return artesMarciales;
     }
 
-    public void setArtesMarciales(ArrayList<Strategy> artesMarciales) {
+    public void setArtesMarciales(ArrayList<ArteMarcial> artesMarciales) {
         this.artesMarciales = artesMarciales;
     }
 

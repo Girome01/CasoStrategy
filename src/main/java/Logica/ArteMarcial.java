@@ -31,6 +31,14 @@ public abstract class ArteMarcial implements Strategy, IPrototype{
         
         return (ArrayList<String>)ataques.keySet();
     }
+    
+    public ArrayList<Ataque> getAtaques2(String ataque1, String ataque2, String ataque3){
+        ArrayList<Ataque> ataquesArr = new ArrayList<>();
+        ataquesArr.add(ataques.get(ataque1));
+        ataquesArr.add(ataques.get(ataque2));
+        ataquesArr.add(ataques.get(ataque3));
+        return ataquesArr;
+    }
 
     public String getImagen() {
         return imagen;
