@@ -15,9 +15,10 @@ public class Ataque {
     private int damage;
     private int actualizacion;
 
-    public Ataque(String nombre, int damage) {
+    public Ataque(String nombre, int damage, int actualizacion) {
         this.nombre = nombre;
         this.damage = damage;
+        this.actualizacion = actualizacion;
     }
     
     public String actualizar(Jugador jugador,Jugador enemigo){
