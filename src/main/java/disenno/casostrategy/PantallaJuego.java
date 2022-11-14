@@ -421,10 +421,10 @@ public class PantallaJuego extends javax.swing.JFrame {
                 "\n"+jugador1Ataques2.get(1).getNombre()+" |> "+ jugador1Ataques2.get(1).getDamage()+
                 "\n"+jugador1Ataques2.get(2).getNombre()+" |> "+ jugador1Ataques2.get(2).getDamage());
         
-      /*  ArrayList<Ataque> jugador1Ataques3 = jugador1AM.get(2).getAtaques2();
-        lbl_Jugador1AM1.setText(jugador1Ataques3.get(0).getNombre()+" |> "+ jugador1Ataques3.get(0).getDamage()+ 
+        ArrayList<Ataque> jugador1Ataques3 = jugador1AM.get(2).getAtaques2();
+        lbl_Jugador1AM3.setText(jugador1Ataques3.get(0).getNombre()+" |> "+ jugador1Ataques3.get(0).getDamage()+ 
                 "\n"+jugador1Ataques3.get(1).getNombre()+" |> "+ jugador1Ataques3.get(1).getDamage()+
-                "\n"+jugador1Ataques3.get(2).getNombre()+" |> "+ jugador1Ataques3.get(2).getDamage()); */
+                "\n"+jugador1Ataques3.get(2).getNombre()+" |> "+ jugador1Ataques3.get(2).getDamage()); 
         
         //-----------------------------------------------------------------------------------------------
         
