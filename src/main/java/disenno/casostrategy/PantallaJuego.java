@@ -24,8 +24,11 @@ public class PantallaJuego extends javax.swing.JFrame {
         initComponents();
         juego.setJugador(jugador1);
         juego.setJugadorNPC(jugador2);
+        juego.crearArtes();
         juego.cambiarArtesJugador(jugador1);
         juego.cambiarArtesJugador(jugador2);
+        actualizarEtiquetas();
+       
     }
 
     /**
@@ -385,15 +388,31 @@ public class PantallaJuego extends javax.swing.JFrame {
         btn_Jugador1AM1.setText(jugador1AM.get(0).getNombre());
         btn_Jugador1AM2.setText(jugador1AM.get(1).getNombre());
         btn_Jugador1AM3.setText(jugador1AM.get(2).getNombre());
-        ArrayList<Ataque> jugador1Ataques = jugador1AM.get(0).getAtaques2(jugador1AM.get(0).getNombre(),jugador1AM.get(1).getNombre(),jugador1AM.get(2).getNombre());
-        lbl_Jugador1AM1.setText(jugador1Ataques.get(0).getNombre()+" |> "+ jugador1Ataques.get(0).getDamage()+ 
-                "\n"+jugador1Ataques.get(1).getNombre()+" |> "+ jugador1Ataques.get(1).getDamage()+
-                "\n"+jugador1Ataques.get(2).getNombre()+" |> "+ jugador1Ataques.get(2).getDamage());
+        ArrayList<Ataque> jugador1Ataques1 = jugador1AM.get(0).getAtaques2();
+        lbl_Jugador1AM1.setText(jugador1Ataques1.get(0).getNombre()+" |> "+ jugador1Ataques1.get(0).getDamage()+ 
+                "\n"+jugador1Ataques1.get(1).getNombre()+" |> "+ jugador1Ataques1.get(1).getDamage()+
+                "\n"+jugador1Ataques1.get(2).getNombre()+" |> "+ jugador1Ataques1.get(2).getDamage());
+        
+        ArrayList<Ataque> jugador1Ataques2 = jugador1AM.get(1).getAtaques2();
+        lbl_Jugador1AM1.setText(jugador1Ataques2.get(0).getNombre()+" |> "+ jugador1Ataques2.get(0).getDamage()+ 
+                "\n"+jugador1Ataques2.get(1).getNombre()+" |> "+ jugador1Ataques2.get(1).getDamage()+
+                "\n"+jugador1Ataques2.get(2).getNombre()+" |> "+ jugador1Ataques2.get(2).getDamage());
+        
+        ArrayList<Ataque> jugador1Ataques3 = jugador1AM.get(2).getAtaques2();
+        lbl_Jugador1AM1.setText(jugador1Ataques3.get(0).getNombre()+" |> "+ jugador1Ataques3.get(0).getDamage()+ 
+                "\n"+jugador1Ataques3.get(1).getNombre()+" |> "+ jugador1Ataques3.get(1).getDamage()+
+                "\n"+jugador1Ataques3.get(2).getNombre()+" |> "+ jugador1Ataques3.get(2).getDamage());
+        
+        //-----------------------------------------------------------------------------------------------
         
         ArrayList<ArteMarcial> jugador2AM = jugador1.getArtesMarciales();
         btn_Jugador2AM1.setText(jugador2AM.get(0).getNombre());
         btn_Jugador2AM2.setText(jugador2AM.get(1).getNombre());
         btn_Jugador2AM3.setText(jugador2AM.get(2).getNombre());
+        ArrayList<Ataque> jugador2Ataques = jugador2AM.get(0).getAtaques2();
+        lbl_Jugador1AM1.setText(jugador2Ataques.get(0).getNombre()+" |> "+ jugador2Ataques.get(0).getDamage()+ 
+                "\n"+jugador2Ataques.get(1).getNombre()+" |> "+ jugador2Ataques.get(1).getDamage()+
+                "\n"+jugador2Ataques.get(2).getNombre()+" |> "+ jugador2Ataques.get(2).getDamage());
         
     }
     private void btn_ActualizarJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ActualizarJ2ActionPerformed
