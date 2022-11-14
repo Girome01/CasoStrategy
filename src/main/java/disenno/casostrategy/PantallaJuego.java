@@ -64,9 +64,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         lbl_Jugador2 = new javax.swing.JLabel();
         btn_Jugador2AM2 = new javax.swing.JButton();
         btn_Jugador2AM3 = new javax.swing.JButton();
-        lbl_Jugador2AM1 = new javax.swing.JLabel();
-        lbl_Jugador2AM2 = new javax.swing.JLabel();
-        lbl_Jugador2AM3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtA_BitacoraJ2 = new javax.swing.JTextArea();
         lbl_Imagen3J2 = new javax.swing.JLabel();
@@ -77,6 +74,12 @@ public class PantallaJuego extends javax.swing.JFrame {
         btn_AtacarJ2 = new javax.swing.JButton();
         btn_ActualizarJ2 = new javax.swing.JButton();
         btn_Jugador2AM1 = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        lbl_Jugador2AM1 = new javax.swing.JTextArea();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        lbl_Jugador2AM3 = new javax.swing.JTextArea();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        lbl_Jugador2AM2 = new javax.swing.JTextArea();
         btn_ReasignarJ2 = new javax.swing.JButton();
         btn_Atacarse2 = new javax.swing.JButton();
         btn_ReasignarJ1 = new javax.swing.JButton();
@@ -247,21 +250,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         panel_Jugador2.add(btn_Jugador2AM3);
         btn_Jugador2AM3.setBounds(259, 43, 100, 26);
 
-        lbl_Jugador2AM1.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_Jugador2AM1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_Jugador2.add(lbl_Jugador2AM1);
-        lbl_Jugador2AM1.setBounds(20, 80, 100, 112);
-
-        lbl_Jugador2AM2.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_Jugador2AM2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_Jugador2.add(lbl_Jugador2AM2);
-        lbl_Jugador2AM2.setBounds(140, 80, 100, 112);
-
-        lbl_Jugador2AM3.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_Jugador2AM3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_Jugador2.add(lbl_Jugador2AM3);
-        lbl_Jugador2AM3.setBounds(260, 80, 100, 112);
-
         txtA_BitacoraJ2.setBackground(new java.awt.Color(255, 255, 255));
         txtA_BitacoraJ2.setColumns(20);
         txtA_BitacoraJ2.setRows(5);
@@ -346,6 +334,39 @@ public class PantallaJuego extends javax.swing.JFrame {
         });
         panel_Jugador2.add(btn_Jugador2AM1);
         btn_Jugador2AM1.setBounds(23, 43, 100, 26);
+
+        lbl_Jugador2AM1.setEditable(false);
+        lbl_Jugador2AM1.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_Jugador2AM1.setColumns(20);
+        lbl_Jugador2AM1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lbl_Jugador2AM1.setForeground(new java.awt.Color(0, 0, 0));
+        lbl_Jugador2AM1.setRows(5);
+        jScrollPane6.setViewportView(lbl_Jugador2AM1);
+
+        panel_Jugador2.add(jScrollPane6);
+        jScrollPane6.setBounds(30, 80, 90, 110);
+
+        lbl_Jugador2AM3.setEditable(false);
+        lbl_Jugador2AM3.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_Jugador2AM3.setColumns(20);
+        lbl_Jugador2AM3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lbl_Jugador2AM3.setForeground(new java.awt.Color(0, 0, 0));
+        lbl_Jugador2AM3.setRows(5);
+        jScrollPane7.setViewportView(lbl_Jugador2AM3);
+
+        panel_Jugador2.add(jScrollPane7);
+        jScrollPane7.setBounds(270, 80, 90, 110);
+
+        lbl_Jugador2AM2.setEditable(false);
+        lbl_Jugador2AM2.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_Jugador2AM2.setColumns(20);
+        lbl_Jugador2AM2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lbl_Jugador2AM2.setForeground(new java.awt.Color(0, 0, 0));
+        lbl_Jugador2AM2.setRows(5);
+        jScrollPane8.setViewportView(lbl_Jugador2AM2);
+
+        panel_Jugador2.add(jScrollPane8);
+        jScrollPane8.setBounds(150, 80, 90, 110);
 
         panel_Fondo.add(panel_Jugador2);
         panel_Jugador2.setBounds(500, 30, 380, 490);
@@ -436,6 +457,16 @@ public class PantallaJuego extends javax.swing.JFrame {
         lbl_Jugador2AM1.setText(jugador2Ataques.get(0).getNombre()+" |> "+ jugador2Ataques.get(0).getDamage()+ 
                 "\n"+jugador2Ataques.get(1).getNombre()+" |> "+ jugador2Ataques.get(1).getDamage()+
                 "\n"+jugador2Ataques.get(2).getNombre()+" |> "+ jugador2Ataques.get(2).getDamage());
+        
+        ArrayList<Ataque> jugador2Ataques2 = jugador2AM.get(1).getAtaques2();
+        lbl_Jugador2AM2.setText(jugador2Ataques2.get(0).getNombre()+" |> "+ jugador2Ataques2.get(0).getDamage()+ 
+                "\n"+jugador2Ataques2.get(1).getNombre()+" |> "+ jugador2Ataques2.get(1).getDamage()+
+                "\n"+jugador2Ataques2.get(2).getNombre()+" |> "+ jugador2Ataques2.get(2).getDamage());
+        
+        ArrayList<Ataque> jugador2Ataques3 = jugador2AM.get(2).getAtaques2();
+        lbl_Jugador2AM3.setText(jugador2Ataques3.get(0).getNombre()+" |> "+ jugador2Ataques3.get(0).getDamage()+ 
+                "\n"+jugador2Ataques3.get(1).getNombre()+" |> "+ jugador2Ataques3.get(1).getDamage()+
+                "\n"+jugador2Ataques3.get(2).getNombre()+" |> "+ jugador2Ataques3.get(2).getDamage()); 
         
     }
     private void btn_ActualizarJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ActualizarJ2ActionPerformed
@@ -539,6 +570,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JLabel lbl_Imagen1J2;
     private javax.swing.JLabel lbl_Imagen2J2;
     private javax.swing.JLabel lbl_Imagen3J2;
@@ -547,9 +581,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JTextArea lbl_Jugador1AM2;
     private javax.swing.JTextArea lbl_Jugador1AM3;
     private javax.swing.JLabel lbl_Jugador2;
-    private javax.swing.JLabel lbl_Jugador2AM1;
-    private javax.swing.JLabel lbl_Jugador2AM2;
-    private javax.swing.JLabel lbl_Jugador2AM3;
+    private javax.swing.JTextArea lbl_Jugador2AM1;
+    private javax.swing.JTextArea lbl_Jugador2AM2;
+    private javax.swing.JTextArea lbl_Jugador2AM3;
     private javax.swing.JLabel lbl_Jugador3;
     private javax.swing.JLabel lbl_VIdaJ2;
     private javax.swing.JLabel lbl_VidaJ1;
