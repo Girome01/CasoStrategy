@@ -18,20 +18,23 @@ public class JugadorPrincipal extends Jugador{
     }
 
     @Override
-    public void attack(Jugador jugador,Jugador enemigo, ArrayList<Ataque> combo) {
+    public String attack(Jugador jugador,Jugador enemigo, ArrayList<Ataque> combo) {
        
+        String comboGenerado = "";
         for (Ataque ataque : combo) {
             
             arteMarcialSelec.attack(jugador, enemigo, ataque.getNombre());
+            comboGenerado.concat(ataque.getNombre()+" ");
             
         }
+        return comboGenerado;
        
     }
 
     @Override
     public void generarCombo() {    
         
-         Random ran = new Random();
+        Random ran = new Random();
         int numGolpes = ran.nextInt(3)+3;
         int seleccionArteMarcial = ran.nextInt(3); //selecciona un arte marcial de los 3 
         

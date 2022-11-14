@@ -18,16 +18,18 @@ public class JugadorNPC extends Jugador{
     }
 
     @Override
-    public void attack(Jugador jugador,Jugador enemigo, ArrayList<Ataque> combo) {
+    public String attack(Jugador jugador, Jugador enemigo,ArrayList<Ataque> combo) {
         
-      
+        String comboGenerado = "";
         for (Ataque ataque : combo) {
             
             ArteMarcial arteMarcial = encontrarArte(ataque.getNombre());
             arteMarcial.attack(jugador, enemigo, ataque.getNombre());
+            comboGenerado.concat(ataque.getNombre()+" ");
             
         }
-            
+           
+        return comboGenerado;
         
     }
 

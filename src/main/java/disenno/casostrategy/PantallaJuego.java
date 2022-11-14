@@ -6,7 +6,9 @@
 package disenno.casostrategy;
 
 import Logica.*;
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,6 +18,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     Juego juego = new Juego();
     JugadorPrincipal jugador1 = new JugadorPrincipal("Jugador 1", 200);
     JugadorNPC jugador2 = new JugadorNPC("Jugador 2", 200);
+    String arteMarcialElegido;
+    String comboGeneradoJ1;
+    String comboGeneradoJ2;
 
     /**
      * Creates new form PantallaJuego
@@ -49,7 +54,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         lbl_Jugador3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtA_BitacoraJ1 = new javax.swing.JTextArea();
-        lbl_ImagenJ2 = new javax.swing.JLabel();
+        lbl_ImagenJ1 = new javax.swing.JLabel();
         btn_GenerarComboJ1 = new javax.swing.JButton();
         lbl_VidaJ1 = new javax.swing.JLabel();
         btn_AtacarJ1 = new javax.swing.JButton();
@@ -97,6 +102,11 @@ public class PantallaJuego extends javax.swing.JFrame {
         btn_Jugador1AM1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_Jugador1AM1.setForeground(new java.awt.Color(255, 255, 255));
         btn_Jugador1AM1.setText("AM");
+        btn_Jugador1AM1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Jugador1AM1ActionPerformed(evt);
+            }
+        });
         panel_Jugador1.add(btn_Jugador1AM1);
         btn_Jugador1AM1.setBounds(15, 43, 100, 26);
 
@@ -104,6 +114,11 @@ public class PantallaJuego extends javax.swing.JFrame {
         btn_Jugador1AM2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_Jugador1AM2.setForeground(new java.awt.Color(255, 255, 255));
         btn_Jugador1AM2.setText("AM");
+        btn_Jugador1AM2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Jugador1AM2ActionPerformed(evt);
+            }
+        });
         panel_Jugador1.add(btn_Jugador1AM2);
         btn_Jugador1AM2.setBounds(143, 43, 100, 26);
 
@@ -111,6 +126,11 @@ public class PantallaJuego extends javax.swing.JFrame {
         btn_Jugador1AM3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_Jugador1AM3.setForeground(new java.awt.Color(255, 255, 255));
         btn_Jugador1AM3.setText("AM");
+        btn_Jugador1AM3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Jugador1AM3ActionPerformed(evt);
+            }
+        });
         panel_Jugador1.add(btn_Jugador1AM3);
         btn_Jugador1AM3.setBounds(260, 43, 100, 26);
 
@@ -132,6 +152,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         panel_Jugador1.add(lbl_Jugador3);
         lbl_Jugador3.setBounds(142, 6, 84, 25);
 
+        txtA_BitacoraJ1.setEditable(false);
         txtA_BitacoraJ1.setBackground(new java.awt.Color(255, 255, 255));
         txtA_BitacoraJ1.setColumns(20);
         txtA_BitacoraJ1.setRows(5);
@@ -140,12 +161,12 @@ public class PantallaJuego extends javax.swing.JFrame {
         panel_Jugador1.add(jScrollPane3);
         jScrollPane3.setBounds(20, 360, 350, 120);
 
-        lbl_ImagenJ2.setBackground(new java.awt.Color(255, 255, 255));
-        lbl_ImagenJ2.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_ImagenJ2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbl_ImagenJ2.setOpaque(true);
-        panel_Jugador1.add(lbl_ImagenJ2);
-        lbl_ImagenJ2.setBounds(260, 200, 100, 112);
+        lbl_ImagenJ1.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_ImagenJ1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_ImagenJ1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbl_ImagenJ1.setOpaque(true);
+        panel_Jugador1.add(lbl_ImagenJ1);
+        lbl_ImagenJ1.setBounds(260, 200, 100, 112);
 
         btn_GenerarComboJ1.setBackground(new java.awt.Color(255, 153, 0));
         btn_GenerarComboJ1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -250,6 +271,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         panel_Jugador2.add(btn_Jugador2AM3);
         btn_Jugador2AM3.setBounds(259, 43, 100, 26);
 
+        txtA_BitacoraJ2.setEditable(false);
         txtA_BitacoraJ2.setBackground(new java.awt.Color(255, 255, 255));
         txtA_BitacoraJ2.setColumns(20);
         txtA_BitacoraJ2.setRows(5);
@@ -471,30 +493,71 @@ public class PantallaJuego extends javax.swing.JFrame {
     }
     private void btn_ActualizarJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ActualizarJ2ActionPerformed
         // TODO add your handling code here:
+        txtA_BitacoraJ2.append(comboGeneradoJ2 + "\n");
+        lbl_VIdaJ2.setText("200/"+jugador2.getVida());
     }//GEN-LAST:event_btn_ActualizarJ2ActionPerformed
 
     private void btn_SeleccionarAMJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SeleccionarAMJ1ActionPerformed
         // TODO add your handling code here:
+        for(int i=0; i<jugador1.getArtesMarciales().size(); i++){
+            if(jugador1.getArtesMarciales().get(i).getNombre().equalsIgnoreCase(arteMarcialElegido.trim())){
+                System.out.println("Sip");
+                jugador1.setArteMarcialSelec(jugador1.getArtesMarciales().get(i));
+                //Display image on jlable
+                ImageIcon ii = new ImageIcon(jugador1.getArtesMarciales().get(i).getImagen());
+                //            Resize image to fit jlabel
+                Image image = ii.getImage().getScaledInstance(lbl_ImagenJ1.getWidth(), lbl_ImagenJ1.getHeight(), Image.SCALE_SMOOTH);
+                lbl_ImagenJ1.setIcon(new ImageIcon(image));
+            }
+        }
     }//GEN-LAST:event_btn_SeleccionarAMJ1ActionPerformed
 
     private void btn_GenerarGolpesJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GenerarGolpesJ2ActionPerformed
         // TODO add your handling code here:
+        jugador2.generarCombo();
+                
+        //Display image on jlable
+        ImageIcon ii = new ImageIcon(jugador2.encontrarArte(jugador2.getCombo().get(0).getNombre()).getImagen()); //Imagen del ARTE MARCIAL
+        //            Resize image to fit jlabel
+        Image image = ii.getImage().getScaledInstance(lbl_Imagen1J2.getWidth(), lbl_Imagen1J2.getHeight(), Image.SCALE_SMOOTH);
+        lbl_Imagen1J2.setIcon(new ImageIcon(image));
+        
+        //Display image on jlable
+        ii = new ImageIcon(jugador2.encontrarArte(jugador2.getCombo().get(1).getNombre()).getImagen());
+        //            Resize image to fit jlabel
+        image = ii.getImage().getScaledInstance(lbl_Imagen2J2.getWidth(), lbl_Imagen2J2.getHeight(), Image.SCALE_SMOOTH);
+        lbl_Imagen2J2.setIcon(new ImageIcon(image));
+        
+        //Display image on jlable
+        ii = new ImageIcon(jugador2.encontrarArte(jugador2.getCombo().get(2).getNombre()).getImagen());
+        //            Resize image to fit jlabel
+        image = ii.getImage().getScaledInstance(lbl_Imagen3J2.getWidth(), lbl_Imagen3J2.getHeight(), Image.SCALE_SMOOTH);
+        lbl_Imagen3J2.setIcon(new ImageIcon(image));
+            
+        
+        
     }//GEN-LAST:event_btn_GenerarGolpesJ2ActionPerformed
 
     private void btn_AtacarJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AtacarJ2ActionPerformed
         // TODO add your handling code here:
+        comboGeneradoJ2 = jugador2.attack(jugador2, jugador1, jugador2.getCombo());
     }//GEN-LAST:event_btn_AtacarJ2ActionPerformed
 
     private void btn_GenerarComboJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GenerarComboJ1ActionPerformed
         // TODO add your handling code here:
+        jugador1.generarCombo();
     }//GEN-LAST:event_btn_GenerarComboJ1ActionPerformed
 
     private void btn_AtacarJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AtacarJ1ActionPerformed
         // TODO add your handling code here:
+        comboGeneradoJ1 = jugador1.attack(jugador1, jugador2, jugador1.getCombo());
+        
     }//GEN-LAST:event_btn_AtacarJ1ActionPerformed
 
     private void btn_ActualizarJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ActualizarJ1ActionPerformed
         // TODO add your handling code here:
+        txtA_BitacoraJ1.append(comboGeneradoJ1 + "\n");
+        lbl_VidaJ1.setText("200/"+jugador1.getVida());
     }//GEN-LAST:event_btn_ActualizarJ1ActionPerformed
 
     private void btn_Jugador2AM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Jugador2AM1ActionPerformed
@@ -503,15 +566,39 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void btn_ReasignarJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReasignarJ2ActionPerformed
         // TODO add your handling code here:
+        juego.cambiarArtesJugador(jugador2);
+        actualizarEtiquetas();
     }//GEN-LAST:event_btn_ReasignarJ2ActionPerformed
 
     private void btn_Atacarse2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Atacarse2ActionPerformed
         // TODO add your handling code here:
+        jugador1.attack(jugador1, jugador2, jugador1.getCombo());
+        jugador2.attack(jugador2, jugador1, jugador2.getCombo());
+        
+        
     }//GEN-LAST:event_btn_Atacarse2ActionPerformed
 
     private void btn_ReasignarJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReasignarJ1ActionPerformed
         // TODO add your handling code here:
+        juego.cambiarArtesJugador(jugador1);
+        actualizarEtiquetas();
     }//GEN-LAST:event_btn_ReasignarJ1ActionPerformed
+
+    private void btn_Jugador1AM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Jugador1AM1ActionPerformed
+        // TODO add your handling code here:
+        arteMarcialElegido = btn_Jugador1AM1.getText();
+    }//GEN-LAST:event_btn_Jugador1AM1ActionPerformed
+
+    private void btn_Jugador1AM2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Jugador1AM2ActionPerformed
+        // TODO add your handling code here:
+        arteMarcialElegido = btn_Jugador1AM2.getText();
+    }//GEN-LAST:event_btn_Jugador1AM2ActionPerformed
+
+    private void btn_Jugador1AM3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Jugador1AM3ActionPerformed
+        // TODO add your handling code here:
+        arteMarcialElegido = btn_Jugador1AM3.getText();
+        System.out.println(arteMarcialElegido);
+    }//GEN-LAST:event_btn_Jugador1AM3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -576,7 +663,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Imagen1J2;
     private javax.swing.JLabel lbl_Imagen2J2;
     private javax.swing.JLabel lbl_Imagen3J2;
-    private javax.swing.JLabel lbl_ImagenJ2;
+    private javax.swing.JLabel lbl_ImagenJ1;
     private javax.swing.JTextArea lbl_Jugador1AM1;
     private javax.swing.JTextArea lbl_Jugador1AM2;
     private javax.swing.JTextArea lbl_Jugador1AM3;

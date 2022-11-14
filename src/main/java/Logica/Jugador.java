@@ -22,7 +22,7 @@ public abstract class Jugador {
         this.vida = vida;
     }
     
-    public abstract void attack(Jugador jugador,Jugador enemigo, ArrayList<Ataque> combo);
+    public abstract String attack(Jugador jugador,Jugador enemigo, ArrayList<Ataque> combo);
     //Jugador se refiere al enemigo que recibe daño, combo se refiere al combo de ataques que se van a hacer
     
     public abstract void generarCombo();

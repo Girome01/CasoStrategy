@@ -12,6 +12,7 @@ ArtesMarciales\Box.class
 disenno\casostrategy\PantallaJuego$6.class
 ArtesMarciales\IPrototype.class
 disenno\casostrategy\PantallaJuego$11.class
+disenno\casostrategy\PantallaJuego$14.class
 disenno\casostrategy\PantallaJuego$1.class
 Logica\ArteMarcial$1.class
 Logica\Strategy.class
@@ -26,9 +27,11 @@ disenno\casostrategy\PantallaJuego$7.class
 ArtesMarciales\Sumo.class
 ArtesMarciales\Iaido.class
 ArtesMarciales\Taekwondo.class
+disenno\casostrategy\PantallaJuego$13.class
 disenno\casostrategy\PantallaJuego$12.class
 ArtesMarciales\Karate.class
 ArtesMarciales\Kendo.class
 Logica\Juego.class
 disenno\casostrategy\PantallaJuego$5.class
 disenno\casostrategy\PantallaJuego$10.class
+disenno\casostrategy\PantallaJuego$15.class
