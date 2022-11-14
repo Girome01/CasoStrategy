@@ -45,9 +45,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         btn_Jugador1AM1 = new javax.swing.JButton();
         btn_Jugador1AM2 = new javax.swing.JButton();
         btn_Jugador1AM3 = new javax.swing.JButton();
-        lbl_Jugador1AM1 = new javax.swing.JLabel();
-        lbl_Jugador1AM2 = new javax.swing.JLabel();
-        lbl_Jugador1AM3 = new javax.swing.JLabel();
         btn_SeleccionarAMJ1 = new javax.swing.JButton();
         lbl_Jugador3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -57,6 +54,12 @@ public class PantallaJuego extends javax.swing.JFrame {
         lbl_VidaJ1 = new javax.swing.JLabel();
         btn_AtacarJ1 = new javax.swing.JButton();
         btn_ActualizarJ1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lbl_Jugador1AM1 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        lbl_Jugador1AM2 = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        lbl_Jugador1AM3 = new javax.swing.JTextArea();
         panel_Jugador2 = new javax.swing.JPanel();
         lbl_Jugador2 = new javax.swing.JLabel();
         btn_Jugador2AM2 = new javax.swing.JButton();
@@ -107,21 +110,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         btn_Jugador1AM3.setText("AM");
         panel_Jugador1.add(btn_Jugador1AM3);
         btn_Jugador1AM3.setBounds(260, 43, 100, 26);
-
-        lbl_Jugador1AM1.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_Jugador1AM1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_Jugador1.add(lbl_Jugador1AM1);
-        lbl_Jugador1AM1.setBounds(20, 80, 100, 112);
-
-        lbl_Jugador1AM2.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_Jugador1AM2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_Jugador1.add(lbl_Jugador1AM2);
-        lbl_Jugador1AM2.setBounds(140, 80, 100, 112);
-
-        lbl_Jugador1AM3.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_Jugador1AM3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_Jugador1.add(lbl_Jugador1AM3);
-        lbl_Jugador1AM3.setBounds(260, 80, 100, 112);
 
         btn_SeleccionarAMJ1.setBackground(new java.awt.Color(255, 153, 0));
         btn_SeleccionarAMJ1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -199,6 +187,39 @@ public class PantallaJuego extends javax.swing.JFrame {
         });
         panel_Jugador1.add(btn_ActualizarJ1);
         btn_ActualizarJ1.setBounds(20, 290, 230, 20);
+
+        lbl_Jugador1AM1.setEditable(false);
+        lbl_Jugador1AM1.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_Jugador1AM1.setColumns(20);
+        lbl_Jugador1AM1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lbl_Jugador1AM1.setForeground(new java.awt.Color(0, 0, 0));
+        lbl_Jugador1AM1.setRows(5);
+        jScrollPane1.setViewportView(lbl_Jugador1AM1);
+
+        panel_Jugador1.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 80, 90, 110);
+
+        lbl_Jugador1AM2.setEditable(false);
+        lbl_Jugador1AM2.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_Jugador1AM2.setColumns(20);
+        lbl_Jugador1AM2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lbl_Jugador1AM2.setForeground(new java.awt.Color(0, 0, 0));
+        lbl_Jugador1AM2.setRows(5);
+        jScrollPane4.setViewportView(lbl_Jugador1AM2);
+
+        panel_Jugador1.add(jScrollPane4);
+        jScrollPane4.setBounds(150, 80, 90, 110);
+
+        lbl_Jugador1AM3.setEditable(false);
+        lbl_Jugador1AM3.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_Jugador1AM3.setColumns(20);
+        lbl_Jugador1AM3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lbl_Jugador1AM3.setForeground(new java.awt.Color(0, 0, 0));
+        lbl_Jugador1AM3.setRows(5);
+        jScrollPane5.setViewportView(lbl_Jugador1AM3);
+
+        panel_Jugador1.add(jScrollPane5);
+        jScrollPane5.setBounds(270, 80, 90, 110);
 
         panel_Fondo.add(panel_Jugador1);
         panel_Jugador1.setBounds(10, 30, 380, 490);
@@ -388,29 +409,31 @@ public class PantallaJuego extends javax.swing.JFrame {
         btn_Jugador1AM1.setText(jugador1AM.get(0).getNombre());
         btn_Jugador1AM2.setText(jugador1AM.get(1).getNombre());
         btn_Jugador1AM3.setText(jugador1AM.get(2).getNombre());
+        
         ArrayList<Ataque> jugador1Ataques1 = jugador1AM.get(0).getAtaques2();
-        lbl_Jugador1AM1.setText(jugador1Ataques1.get(0).getNombre()+" |> "+ jugador1Ataques1.get(0).getDamage()+ 
+        lbl_Jugador1AM1.setText(jugador1Ataques1.get(0).getNombre()+" |> "+ jugador1Ataques1.get(0).getDamage()+
                 "\n"+jugador1Ataques1.get(1).getNombre()+" |> "+ jugador1Ataques1.get(1).getDamage()+
                 "\n"+jugador1Ataques1.get(2).getNombre()+" |> "+ jugador1Ataques1.get(2).getDamage());
         
-        ArrayList<Ataque> jugador1Ataques2 = jugador1AM.get(1).getAtaques2();
-        lbl_Jugador1AM1.setText(jugador1Ataques2.get(0).getNombre()+" |> "+ jugador1Ataques2.get(0).getDamage()+ 
+       ArrayList<Ataque> jugador1Ataques2 = jugador1AM.get(1).getAtaques2();
+       System.out.println(jugador1AM.get(1).getAtaques2().size());
+        lbl_Jugador1AM2.setText(jugador1Ataques2.get(0).getNombre()+" |> "+ jugador1Ataques2.get(0).getDamage()+ 
                 "\n"+jugador1Ataques2.get(1).getNombre()+" |> "+ jugador1Ataques2.get(1).getDamage()+
                 "\n"+jugador1Ataques2.get(2).getNombre()+" |> "+ jugador1Ataques2.get(2).getDamage());
         
-        ArrayList<Ataque> jugador1Ataques3 = jugador1AM.get(2).getAtaques2();
+      /*  ArrayList<Ataque> jugador1Ataques3 = jugador1AM.get(2).getAtaques2();
         lbl_Jugador1AM1.setText(jugador1Ataques3.get(0).getNombre()+" |> "+ jugador1Ataques3.get(0).getDamage()+ 
                 "\n"+jugador1Ataques3.get(1).getNombre()+" |> "+ jugador1Ataques3.get(1).getDamage()+
-                "\n"+jugador1Ataques3.get(2).getNombre()+" |> "+ jugador1Ataques3.get(2).getDamage());
+                "\n"+jugador1Ataques3.get(2).getNombre()+" |> "+ jugador1Ataques3.get(2).getDamage()); */
         
         //-----------------------------------------------------------------------------------------------
         
-        ArrayList<ArteMarcial> jugador2AM = jugador1.getArtesMarciales();
+        ArrayList<ArteMarcial> jugador2AM = jugador2.getArtesMarciales();
         btn_Jugador2AM1.setText(jugador2AM.get(0).getNombre());
         btn_Jugador2AM2.setText(jugador2AM.get(1).getNombre());
         btn_Jugador2AM3.setText(jugador2AM.get(2).getNombre());
         ArrayList<Ataque> jugador2Ataques = jugador2AM.get(0).getAtaques2();
-        lbl_Jugador1AM1.setText(jugador2Ataques.get(0).getNombre()+" |> "+ jugador2Ataques.get(0).getDamage()+ 
+        lbl_Jugador2AM1.setText(jugador2Ataques.get(0).getNombre()+" |> "+ jugador2Ataques.get(0).getDamage()+ 
                 "\n"+jugador2Ataques.get(1).getNombre()+" |> "+ jugador2Ataques.get(1).getDamage()+
                 "\n"+jugador2Ataques.get(2).getNombre()+" |> "+ jugador2Ataques.get(2).getDamage());
         
@@ -511,15 +534,18 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JButton btn_ReasignarJ1;
     private javax.swing.JButton btn_ReasignarJ2;
     private javax.swing.JButton btn_SeleccionarAMJ1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel lbl_Imagen1J2;
     private javax.swing.JLabel lbl_Imagen2J2;
     private javax.swing.JLabel lbl_Imagen3J2;
     private javax.swing.JLabel lbl_ImagenJ2;
-    private javax.swing.JLabel lbl_Jugador1AM1;
-    private javax.swing.JLabel lbl_Jugador1AM2;
-    private javax.swing.JLabel lbl_Jugador1AM3;
+    private javax.swing.JTextArea lbl_Jugador1AM1;
+    private javax.swing.JTextArea lbl_Jugador1AM2;
+    private javax.swing.JTextArea lbl_Jugador1AM3;
     private javax.swing.JLabel lbl_Jugador2;
     private javax.swing.JLabel lbl_Jugador2AM1;
     private javax.swing.JLabel lbl_Jugador2AM2;
