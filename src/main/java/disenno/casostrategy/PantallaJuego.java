@@ -9,6 +9,7 @@ import Logica.*;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -53,6 +54,19 @@ public class PantallaJuego extends javax.swing.JFrame {
         image = ii.getImage().getScaledInstance(lbl_Imagen3J2.getWidth(), lbl_Imagen3J2.getHeight(), Image.SCALE_SMOOTH);
         lbl_Imagen3J2.setIcon(new ImageIcon(image));
        
+    }
+    
+    public void revisarGanador(){
+        if(jugador1.getVida()<=0){
+            lbl_VidaJ1.setText("200/"+0);
+            JOptionPane.showMessageDialog(this, jugador2.getNombre()+" HA GANADO!!!");
+            this.setVisible(false);
+        }
+         if(jugador2.getVida()<=0){
+             lbl_VidaJ1.setText("200/"+0);
+            JOptionPane.showMessageDialog(this, jugador1.getNombre()+" HA GANADO!!!");
+              this.setVisible(false);
+         }
     }
 
     /**
@@ -516,6 +530,8 @@ public class PantallaJuego extends javax.swing.JFrame {
         lbl_VIdaJ2.setText("200/"+jugador2.getVida());
         comboGeneradoJ2 = "";
         
+        revisarGanador();
+        
     }//GEN-LAST:event_btn_ActualizarJ2ActionPerformed
 
     private void btn_SeleccionarAMJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SeleccionarAMJ1ActionPerformed
@@ -561,6 +577,8 @@ public class PantallaJuego extends javax.swing.JFrame {
         txtA_BitacoraJ1.append(comboGeneradoJ1 + "\n");
         lbl_VidaJ1.setText("200/"+jugador1.getVida());
         comboGeneradoJ1 = "";
+        
+        revisarGanador();
     }//GEN-LAST:event_btn_ActualizarJ1ActionPerformed
 
     private void btn_Jugador2AM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Jugador2AM1ActionPerformed
