@@ -63,7 +63,7 @@ public class PantallaJuego extends javax.swing.JFrame {
             this.setVisible(false);
         }
          if(jugador2.getVida()<=0){
-             lbl_VidaJ1.setText("200/"+0);
+             lbl_VIdaJ2.setText("200/"+0);
             JOptionPane.showMessageDialog(this, jugador1.getNombre()+" HA GANADO!!!");
               this.setVisible(false);
          }
