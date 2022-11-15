@@ -34,6 +34,24 @@ public class PantallaJuego extends javax.swing.JFrame {
         juego.cambiarArtesJugador(jugador1);
         juego.cambiarArtesJugador(jugador2);
         actualizarEtiquetas();
+        
+         //Display image on jlable
+        ImageIcon ii = new ImageIcon(jugador2.getArtesMarciales().get(0).getImagen()); //Imagen del ARTE MARCIAL
+        //            Resize image to fit jlabel
+        Image image = ii.getImage().getScaledInstance(lbl_Imagen1J2.getWidth(), lbl_Imagen1J2.getHeight(), Image.SCALE_SMOOTH);
+        lbl_Imagen1J2.setIcon(new ImageIcon(image));
+        
+        //Display image on jlable
+        ii = new ImageIcon(jugador2.getArtesMarciales().get(1).getImagen());
+        //            Resize image to fit jlabel
+        image = ii.getImage().getScaledInstance(lbl_Imagen2J2.getWidth(), lbl_Imagen2J2.getHeight(), Image.SCALE_SMOOTH);
+        lbl_Imagen2J2.setIcon(new ImageIcon(image));
+        
+        //Display image on jlable
+        ii = new ImageIcon(jugador2.getArtesMarciales().get(2).getImagen());
+        //            Resize image to fit jlabel
+        image = ii.getImage().getScaledInstance(lbl_Imagen3J2.getWidth(), lbl_Imagen3J2.getHeight(), Image.SCALE_SMOOTH);
+        lbl_Imagen3J2.setIcon(new ImageIcon(image));
        
     }
 
@@ -518,27 +536,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     private void btn_GenerarGolpesJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GenerarGolpesJ2ActionPerformed
         // TODO add your handling code here:
         juego.generarCombo(jugador2);
-                
-        //Display image on jlable
-        ImageIcon ii = new ImageIcon(jugador2.encontrarArte(jugador2.getCombo().get(0).getNombre()).getImagen()); //Imagen del ARTE MARCIAL
-        //            Resize image to fit jlabel
-        Image image = ii.getImage().getScaledInstance(lbl_Imagen1J2.getWidth(), lbl_Imagen1J2.getHeight(), Image.SCALE_SMOOTH);
-        lbl_Imagen1J2.setIcon(new ImageIcon(image));
-        
-        //Display image on jlable
-        ii = new ImageIcon(jugador2.encontrarArte(jugador2.getCombo().get(1).getNombre()).getImagen());
-        //            Resize image to fit jlabel
-        image = ii.getImage().getScaledInstance(lbl_Imagen2J2.getWidth(), lbl_Imagen2J2.getHeight(), Image.SCALE_SMOOTH);
-        lbl_Imagen2J2.setIcon(new ImageIcon(image));
-        
-        //Display image on jlable
-        ii = new ImageIcon(jugador2.encontrarArte(jugador2.getCombo().get(2).getNombre()).getImagen());
-        //            Resize image to fit jlabel
-        image = ii.getImage().getScaledInstance(lbl_Imagen3J2.getWidth(), lbl_Imagen3J2.getHeight(), Image.SCALE_SMOOTH);
-        lbl_Imagen3J2.setIcon(new ImageIcon(image));
-            
-        
-        
+                   
     }//GEN-LAST:event_btn_GenerarGolpesJ2ActionPerformed
 
     private void btn_AtacarJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AtacarJ2ActionPerformed
@@ -573,6 +571,24 @@ public class PantallaJuego extends javax.swing.JFrame {
         // TODO add your handling code here:
         juego.cambiarArtesJugador(jugador2);
         actualizarEtiquetas();
+        
+         //Display image on jlable
+        ImageIcon ii = new ImageIcon(jugador2.getArtesMarciales().get(0).getImagen()); //Imagen del ARTE MARCIAL
+        //            Resize image to fit jlabel
+        Image image = ii.getImage().getScaledInstance(lbl_Imagen1J2.getWidth(), lbl_Imagen1J2.getHeight(), Image.SCALE_SMOOTH);
+        lbl_Imagen1J2.setIcon(new ImageIcon(image));
+        
+        //Display image on jlable
+        ii = new ImageIcon(jugador2.getArtesMarciales().get(1).getImagen());
+        //            Resize image to fit jlabel
+        image = ii.getImage().getScaledInstance(lbl_Imagen2J2.getWidth(), lbl_Imagen2J2.getHeight(), Image.SCALE_SMOOTH);
+        lbl_Imagen2J2.setIcon(new ImageIcon(image));
+        
+        //Display image on jlable
+        ii = new ImageIcon(jugador2.getArtesMarciales().get(2).getImagen());
+        //            Resize image to fit jlabel
+        image = ii.getImage().getScaledInstance(lbl_Imagen3J2.getWidth(), lbl_Imagen3J2.getHeight(), Image.SCALE_SMOOTH);
+        lbl_Imagen3J2.setIcon(new ImageIcon(image));
     }//GEN-LAST:event_btn_ReasignarJ2ActionPerformed
 
     private void btn_Atacarse2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Atacarse2ActionPerformed

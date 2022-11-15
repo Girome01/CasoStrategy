@@ -13,5 +13,8 @@ public class CasoStrategy {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        PantallaJuego pantalla = new PantallaJuego();
+        pantalla.setVisible(true);
+        
     }
 }

@@ -15,13 +15,22 @@ import java.util.HashMap;
 public abstract class ArteMarcial implements Strategy, IPrototype{
     private String imagen;
     private String nombre;
-    private HashMap<String,Ataque> ataques = new HashMap<>();
+    private HashMap<String,Ataque> ataques;
     private Jugador refJugador;
 
     public ArteMarcial(String imagen, String nombre) {
         this.imagen = imagen;
         this.nombre = nombre;
+        this.ataques = new HashMap<>();
     }
+
+    public ArteMarcial(String imagen, String nombre, HashMap<String,Ataque> ataques) {
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.ataques = ataques;
+    }
+    
+    
     
     public void addArte(Ataque ataque){
         ataques.put(ataque.getNombre(), ataque);
@@ -81,7 +90,7 @@ public abstract class ArteMarcial implements Strategy, IPrototype{
     
     @Override
     public IPrototype clone() {
-        ArteMarcial arteMarcial = new ArteMarcial(imagen, nombre) {};
+        ArteMarcial arteMarcial = new ArteMarcial(imagen, nombre,ataques) {};
             
         return arteMarcial;
     }
