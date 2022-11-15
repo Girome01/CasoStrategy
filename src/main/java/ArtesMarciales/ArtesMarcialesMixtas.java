@@ -18,13 +18,4 @@ public class ArtesMarcialesMixtas extends ArteMarcial{
     }
 
 
-    @Override
-    public IPrototype clone() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public IPrototype deepClone() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
